@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's New at Autodesk — personalized for your organization</title>
+<meta name="description" content="Discover the latest Autodesk capabilities relevant to your industry, role, and workflows. Filter by industry, role, product and priority, then share a summary with your team.">
+<meta property="og:title" content="What's New at Autodesk">
+<meta property="og:description" content="Discover the latest Autodesk capabilities relevant to your industry, role, and workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#000;
+  --ink-2:#3d4652;
+  --muted:#6b7480;
+  --hair:#e4e8ee;
+  --paper:#fff;
+  --field:#f4f6f9;
+  --field-2:#eaeef3;
+  --focus:#1858ff;
+  --aec:#0f766e;
+  --dm:#b45309;
+  --me:#6d28d9;
+  --ok:#137a3a;
+  --r-card:8px;
+  --r-pill:999px;
+  --max:1240px;
+  font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 40px}}
+
+/* header */
+.top{border-bottom:1px solid var(--hair);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+.brand{font-weight:800;letter-spacing:-.01em;font-size:17px;display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand i{display:inline-block;width:10px;height:10px;background:var(--ink);border-radius:2px}
+.topnav{display:none;gap:22px;font-size:14px;color:var(--ink-2)}
+.topnav a{text-decoration:none}
+.topnav a:hover{color:var(--ink)}
+@media(min-width:760px){.topnav{display:flex}}
+.top .cta{font-size:14px;font-weight:600;border:1px solid var(--ink);border-radius:var(--r-pill);padding:7px 14px;background:var(--ink);color:#fff}
+.top .cta[disabled]{background:#fff;color:var(--muted);border-color:var(--hair);cursor:default}
+@media(max-width:560px){.top .cta{display:none}}
+
+/* hero */
+.hero{padding:44px 0 26px}
+@media(min-width:900px){.hero{padding:64px 0 32px}}
+.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.02;letter-spacing:-.03em;font-weight:800;margin:0 0 14px;max-width:16ch}
+.hero p.lede{font-size:clamp(17px,2.2vw,21px);color:var(--ink-2);margin:0;max-width:56ch}
+.hero .meta{margin-top:18px;color:var(--muted);font-size:14px}
+
+/* the sentence builder */
+.sentence{margin:26px 0 0;padding:22px 0 26px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.sentence .line{font-size:clamp(20px,3.2vw,30px);line-height:1.55;letter-spacing:-.015em;font-weight:500;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.slot{position:relative;display:inline-flex;align-items:center;gap:6px;border:1.5px dashed #b7c0cc;border-radius:var(--r-pill);padding:2px 14px 3px;font-weight:700;color:var(--ink);background:var(--field);line-height:1.3;transition:background .15s,border-color .15s}
+.slot:hover{background:var(--field-2)}
+.slot.set{border-style:solid;border-color:var(--ink);background:#fff}
+.slot svg{width:12px;height:12px;opacity:.6}
+.slot.set svg{opacity:.9}
+.sentence .tools{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:16px;align-items:center;font-size:14px;color:var(--muted)}
+.sentence .tools button.link{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.sentence .tools button.link:hover{color:var(--ink)}
+
+/* popover for slots */
+.pop{position:absolute;z-index:30;top:calc(100% + 8px);left:0;min-width:260px;max-width:min(92vw,420px);background:#fff;border:1px solid var(--hair);border-radius:12px;box-shadow:0 14px 40px rgba(16,24,40,.14);padding:12px;font-size:15px;font-weight:500;letter-spacing:0;color:var(--ink)}
+.pop.right{left:auto;right:0}
+.pop h4{margin:2px 4px 8px;font-size:13px;color:var(--muted);font-weight:600}
+.pop .opts{display:flex;flex-wrap:wrap;gap:6px;max-height:44vh;overflow:auto;padding:2px}
+.pop .opts button{border:1px solid var(--hair);border-radius:var(--r-pill);padding:5px 11px;font-size:14px;background:#fff;text-align:left}
+.pop .opts button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pop .opts button:hover{border-color:var(--ink)}
+.pop .group{width:100%;font-size:12px;color:var(--muted);margin:8px 4px 2px;font-weight:600}
+.pop .group:first-child{margin-top:0}
+.pop .foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px}
+.pop .foot button{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.pop .foot .done{color:#fff;background:var(--ink);text-decoration:none;border-radius:var(--r-pill);padding:6px 14px;font-weight:600}
+.pop input[type=search]{width:100%;border:1px solid var(--hair);border-radius:8px;padding:8px 10px;font:inherit;margin-bottom:8px;background:var(--field)}
+
+/* toolbar */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:18px 0 8px}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;border:1px solid var(--hair);border-radius:var(--r-pill);padding:8px 14px;background:var(--field)}
+.search:focus-within{border-color:var(--ink);background:#fff}
+.search input{border:0;background:transparent;font:inherit;font-size:15px;width:100%;outline:none}
+.search svg{width:16px;height:16px;flex:none;color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--hair);border-radius:var(--r-pill);padding:3px;background:var(--field);max-width:100%;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.seg::-webkit-scrollbar{display:none}
+.seg button{border-radius:var(--r-pill);padding:5px 12px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
+.chip{border:1px solid var(--hair);border-radius:var(--r-pill);padding:5px 11px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:#fff}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip:hover{border-color:var(--ink)}
+.count{font-size:14px;color:var(--muted);padding:6px 0 0}
+.count strong{color:var(--ink);font-weight:700}
+
+/* sections */
+section.block{padding:26px 0 8px}
+section.block h2{font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin:0 0 4px;font-weight:800}
+section.block .sub{color:var(--muted);margin:0 0 16px;font-size:15px}
+
+/* cards */
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{position:relative;border:1px solid var(--hair);border-radius:var(--r-card);background:#fff;padding:18px 18px 16px 22px;display:flex;flex-direction:column;gap:10px;text-align:left;width:100%;transition:border-color .15s}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:var(--r-card) 0 0 var(--r-card);background:var(--edge,#888)}
+.card:hover{border-color:#9aa4b2}
+.card.featured{background:var(--field)}
+.card .head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card .status{font-size:12.5px;font-weight:700;color:var(--ink-2);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.card .status b{display:inline-block;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ink-2)}
+.card .status.released b{background:var(--ink-2)}
+.card .status.preview b{background:repeating-linear-gradient(45deg,var(--ink-2) 0 2px,transparent 2px 4px)}
+.card .status.coming b{border-style:dashed}
+.card .status.announced b{background:#fff}
+.card .status.strategic b{border-radius:1px}
+.card .date{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.card h3{margin:0;font-size:17.5px;line-height:1.3;letter-spacing:-.01em;font-weight:700}
+.card p{margin:0;color:var(--ink-2);font-size:14.5px}
+.card .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.tag{font-size:12px;font-weight:600;border-radius:var(--r-pill);padding:3px 9px;background:var(--field-2);color:var(--ink-2)}
+.card.featured .tag{background:#fff}
+.tag.prod{background:#fff;border:1px solid var(--hair)}
+.card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:4px;padding-top:10px;border-top:1px solid var(--hair);font-size:13px;color:var(--muted)}
+.card .why{display:flex;flex-wrap:wrap;gap:4px 8px}
+.card .why span{color:var(--ok);font-weight:600}
+.card .sel{border:1px solid var(--hair);border-radius:var(--r-pill);padding:4px 10px;font-weight:600;color:var(--ink-2);background:#fff;white-space:nowrap}
+.card .sel[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.card .open{position:absolute;inset:0;border-radius:var(--r-card)}
+.card .open:focus-visible{outline-offset:-3px}
+.card .head,.card h3,.card p,.card .tags{pointer-events:none}
+.card .foot{position:relative;z-index:1}
+
+/* empty / error */
+.empty{border:1px dashed #b7c0cc;border-radius:12px;padding:34px 24px;text-align:center;color:var(--ink-2);margin:12px 0}
+.empty h3{margin:0 0 6px;font-size:18px}
+.empty button{color:var(--ink);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.notice{border:1px solid #f0c9a0;background:#fff7ee;border-radius:10px;padding:14px 16px;font-size:14px;margin:16px 0}
+
+/* browse rows */
+.browse{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.browse{grid-template-columns:repeat(3,1fr)}}
+.tile{border:1px solid var(--hair);border-radius:var(--r-card);padding:18px 18px 16px 22px;text-align:left;position:relative;background:#fff}
+.tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:var(--r-card) 0 0 var(--r-card);background:var(--edge,#888)}
+.tile:hover{border-color:#9aa4b2}
+.tile h3{margin:0 0 4px;font-size:18px}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+.tile .n{font-weight:800;font-size:26px;letter-spacing:-.02em;margin-top:10px}
+.rolelist{display:flex;flex-wrap:wrap;gap:6px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,14,20,.42);z-index:40;display:none}
+.scrim.on{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(100vw,640px);background:#fff;z-index:50;transform:translateX(102%);transition:transform .22s ease;display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.12)}
+.drawer.on{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--hair);gap:10px}
+.drawer .dh .x{width:36px;height:36px;border-radius:50%;border:1px solid var(--hair);display:grid;place-items:center;flex:none}
+.drawer .db{overflow:auto;padding:22px 20px 40px}
+@media(min-width:900px){.drawer .db{padding:28px 32px 48px}}
+.drawer .edge{height:5px;border-radius:3px;width:64px;margin-bottom:16px;background:var(--edge)}
+.drawer h2{font-size:clamp(22px,3vw,30px);line-height:1.15;letter-spacing:-.025em;margin:0 0 8px;font-weight:800}
+.drawer .kv{display:grid;grid-template-columns:120px 1fr;gap:6px 14px;font-size:14px;margin:14px 0 20px;padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.drawer .kv dt{color:var(--muted);margin:0}
+.drawer .kv dd{margin:0}
+.drawer h3{font-size:14px;color:var(--muted);font-weight:700;margin:22px 0 6px}
+.drawer h3:first-of-type{margin-top:0}
+.drawer p{margin:0;font-size:16px;color:var(--ink);max-width:66ch}
+.drawer .tags{display:flex;flex-wrap:wrap;gap:6px}
+.drawer .tags .tag{font-size:13px}
+.drawer .tags .tag.primary{background:var(--ink);color:#fff}
+.drawer .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.btn{border:1px solid var(--ink);border-radius:var(--r-pill);padding:9px 16px;font-weight:700;font-size:14px;background:#fff;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.quiet{border-color:var(--hair);color:var(--ink-2)}
+.btn[aria-pressed="true"]{background:var(--ink);color:#fff}
+.btn svg{width:14px;height:14px}
+.drawer .src{margin-top:26px;padding:14px 16px;background:var(--field);border-radius:10px;font-size:14px}
+.drawer .src a{font-weight:700;word-break:break-word}
+.drawer .next{display:flex;gap:10px;align-items:flex-start;background:var(--field);border-radius:10px;padding:14px 16px;margin-top:10px}
+.drawer .next b{display:block;font-size:13px;color:var(--muted);font-weight:700;margin-bottom:2px}
+
+/* collection tray */
+.tray{position:fixed;left:50%;transform:translate(-50%,120%);bottom:16px;z-index:35;background:var(--ink);color:#fff;border-radius:var(--r-pill);padding:8px 8px 8px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);transition:transform .22s ease;font-size:14px;max-width:calc(100vw - 24px)}
+.tray.on{transform:translate(-50%,0)}
+.tray button{color:#fff;font-weight:700}
+.tray .go{background:#fff;color:var(--ink);border-radius:var(--r-pill);padding:8px 14px;white-space:nowrap}
+.tray .clr{color:#c9d1dc;text-decoration:underline;text-underline-offset:3px;font-weight:500}
+
+/* share modal */
+.modal{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center;padding:0}
+.modal.on{display:flex}
+@media(min-width:760px){.modal{align-items:center;padding:24px}}
+.modal .box{background:#fff;width:100%;max-width:820px;max-height:100vh;border-radius:16px 16px 0 0;display:flex;flex-direction:column;overflow:hidden}
+@media(min-width:760px){.modal .box{border-radius:16px;max-height:calc(100vh - 48px)}}
+.modal .mh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--hair)}
+.modal .mh h2{margin:0;font-size:18px;letter-spacing:-.01em}
+.modal .mb{overflow:auto;padding:18px 20px 22px}
+.modal .lens{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.modal .lens .chip{font-size:14px;padding:7px 13px}
+.modal .lensnote{font-size:14px;color:var(--ink-2);margin:0 0 14px;max-width:70ch}
+.modal textarea{width:100%;min-height:280px;border:1px solid var(--hair);border-radius:10px;padding:14px;font:500 14px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink);background:var(--field);resize:vertical}
+.modal .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.modal .fmt{display:flex;gap:6px;margin-bottom:10px;align-items:center;font-size:13.5px;color:var(--muted)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:var(--r-pill);font-size:14px;font-weight:600;opacity:0;transition:opacity .18s,transform .18s;z-index:70;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+footer{border-top:1px solid var(--hair);margin-top:48px;padding:26px 0 44px;color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--ink-2)}
+
+/* print */
+.printwrap{display:none}
+@media print{
+  body>*{display:none!important}
+  .printwrap{display:block!important;font-family:Georgia,serif;font-size:12pt;line-height:1.45;color:#000;padding:0;max-width:none}
+  .printwrap h1{font-size:20pt;margin:0 0 4pt}
+  .printwrap .p-meta{color:#555;font-size:10pt;margin-bottom:16pt}
+  .printwrap article{page-break-inside:avoid;margin:0 0 16pt;padding:0 0 12pt;border-bottom:1px solid #bbb}
+  .printwrap article h2{font-size:13.5pt;margin:0 0 2pt}
+  .printwrap article .s{color:#444;font-size:10pt;margin:0 0 6pt}
+  .printwrap article p{margin:0 0 5pt}
+  .printwrap article b{font-weight:700}
+  .printwrap article .u{font-size:9.5pt;color:#333;word-break:break-all}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" id="home"><i aria-hidden="true"></i>What's New at Autodesk</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#featured">Featured</a>
+      <a href="#all">All updates</a>
+      <a href="#industry">By industry</a>
+      <a href="#role">By role</a>
+      <a href="#outcome">By outcome</a>
+    </nav>
+    <button class="cta" id="shareTop" disabled>Share with my team</button>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="hero">
+    <h1>What's new at Autodesk, for the people who need to know.</h1>
+    <p class="lede">Discover the latest Autodesk capabilities relevant to your industry, role, and workflows — what changed, why it matters, who should hear about it, and what to do next.</p>
+    <p class="meta" id="heroMeta"></p>
+
+    <div class="sentence" aria-label="Personalize this page">
+      <div class="line" id="sentence"></div>
+      <div class="tools">
+        <button class="link" id="resetAll">Show everything</button>
+        <button class="link" id="copyLink">Copy a link to this view</button>
+        <span id="linkHint"></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="bar" id="all">
+    <label class="search"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="m14 14 4 4"/></svg><span class="sr">Search updates</span><input type="search" id="q" placeholder="Search products, features, workflows…" autocomplete="off"></label>
+    <div class="seg" role="group" aria-label="Sort"><button data-sort="relevant" aria-pressed="true">Most relevant</button><button data-sort="latest" aria-pressed="false">Latest</button></div>
+    <div class="seg" role="group" aria-label="Release status" id="statusSeg"></div>
+    <button class="chip" id="aiOnly" aria-pressed="false">AI updates only</button>
+  </div>
+  <div class="count" id="count"></div>
+
+  <div id="notice"></div>
+
+  <section class="block" id="featured">
+    <h2>Featured</h2>
+    <p class="sub">The handful of developments that set the direction for the year.</p>
+    <div class="grid three" id="featuredGrid"></div>
+  </section>
+
+  <section class="block" id="results">
+    <h2 id="resultsTitle">All updates</h2>
+    <p class="sub" id="resultsSub">Ranked by relevance to your selections, then recency.</p>
+    <div class="grid" id="grid"></div>
+    <div id="empty"></div>
+  </section>
+
+  <section class="block" id="industry">
+    <h2>Browse by industry</h2>
+    <p class="sub">Each card shows how many updates touch that industry.</p>
+    <div class="browse" id="industryTiles"></div>
+  </section>
+
+  <section class="block" id="role">
+    <h2>Browse by role</h2>
+    <p class="sub">Pick the role of the person you have in mind — the page reorders around them.</p>
+    <div class="rolelist" id="roleChips"></div>
+  </section>
+
+  <section class="block" id="outcome">
+    <h2>Browse by outcome</h2>
+    <p class="sub">Start from the business problem instead of the product.</p>
+    <div class="rolelist" id="outcomeChips"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Sources are official Autodesk announcements, release notes and documentation. Release dates and status reflect Autodesk's public communications at the time of publishing; preview and "coming soon" items may change.</div>
+    <div>Last content refresh: <span id="footDate"></span> · <a href="https://www.autodesk.com/" target="_blank" rel="noopener">autodesk.com</a></div>
+  </div>
+</footer>
+
+<div class="tray" id="tray" role="region" aria-live="polite">
+  <span id="trayText">0 selected</span>
+  <button class="clr" id="trayClear">Clear</button>
+  <button class="go" id="trayShare">Share with my team</button>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="dh"><span id="dCrumb" style="font-size:13px;color:var(--muted)"></span><button class="x" id="dClose" aria-label="Close"><svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
+  <div class="db" id="dBody"></div>
+</aside>
+
+<div class="modal" id="share" role="dialog" aria-modal="true" aria-labelledby="sTitle">
+  <div class="box">
+    <div class="mh"><h2 id="sTitle">Share with my team</h2><button class="x btn quiet" id="sClose" aria-label="Close">Close</button></div>
+    <div class="mb">
+      <p class="lensnote" style="margin-bottom:8px"><strong>Who is this for?</strong> The summary changes emphasis based on the recipient.</p>
+      <div class="lens" id="lens" role="group" aria-label="Recipient"></div>
+      <p class="lensnote" id="lensNote"></p>
+      <div class="fmt">Format: <div class="seg" role="group" aria-label="Format"><button data-fmt="email" aria-pressed="true">Email</button><button data-fmt="teams" aria-pressed="false">Teams</button><button data-fmt="plain" aria-pressed="false">Plain text</button></div></div>
+      <label class="sr" for="sText">Shareable summary</label>
+      <textarea id="sText" readonly></textarea>
+      <div class="row">
+        <button class="btn solid" id="sCopy">Copy summary</button>
+        <button class="btn" id="sLink">Copy link for this recipient</button>
+        <a class="btn" id="sMail" href="#">Open in email</a>
+        <button class="btn quiet" id="sPrint">Print or save as PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="printwrap" id="printwrap"></div>
+
+<script src="data/updates.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ---------- taxonomy (edit labels here; ids are referenced by data/updates.js) ---------- */
+const T = {
+  industries: [
+    {id:'aec', label:'AEC', long:'Architecture, Engineering & Construction', color:'var(--aec)', blurb:'Buildings, infrastructure, owners, contractors and design firms.'},
+    {id:'dm',  label:'Design & Manufacturing', long:'Design & Manufacturing', color:'var(--dm)', blurb:'Product design, industrial machinery, automotive, factories, PLM and CAM.'},
+    {id:'me',  label:'Media & Entertainment', long:'Media & Entertainment', color:'var(--me)', blurb:'Film, TV, animation, VFX, games and production.'}
+  ],
+  groups: [
+    {id:'executive', label:'Executive'},
+    {id:'transformation', label:'Business & transformation'},
+    {id:'technical', label:'Technical'},
+    {id:'it', label:'IT & platform'}
+  ],
+  roles: [
+    {id:'ceo', label:'CEO / Managing Director', group:'executive'},
+    {id:'cio', label:'CIO / CTO', group:'executive'},
+    {id:'coo', label:'COO / Operations Executive', group:'executive'},
+    {id:'cdo', label:'Chief Digital Officer', group:'executive'},
+    {id:'vp-eng', label:'VP Engineering', group:'executive'},
+    {id:'vp-construction', label:'VP Construction', group:'executive'},
+    {id:'vp-mfg', label:'VP Manufacturing', group:'executive'},
+    {id:'studio-exec', label:'Studio / Production Executive', group:'executive'},
+    {id:'dt-lead', label:'Digital Transformation Lead', group:'transformation'},
+    {id:'innovation-lead', label:'Innovation Lead', group:'transformation'},
+    {id:'bim-vdc-leader', label:'BIM / VDC Leader', group:'transformation'},
+    {id:'design-tech-leader', label:'Design Technology Leader', group:'transformation'},
+    {id:'mfg-eng-leader', label:'Manufacturing Engineering Leader', group:'transformation'},
+    {id:'ops-leader', label:'Operations / Facilities Leader', group:'transformation'},
+    {id:'sustainability-lead', label:'Sustainability Lead', group:'transformation'},
+    {id:'architect', label:'Architect', group:'technical'},
+    {id:'engineer', label:'Engineer (Structural, Civil, MEP)', group:'technical'},
+    {id:'bim-manager', label:'BIM Manager', group:'technical'},
+    {id:'vdc-manager', label:'VDC Manager', group:'technical'},
+    {id:'project-manager', label:'Project Manager', group:'technical'},
+    {id:'construction-manager', label:'Construction / Field Manager', group:'technical'},
+    {id:'preconstruction', label:'Preconstruction / Estimator', group:'technical'},
+    {id:'designer', label:'Product / Industrial Designer', group:'technical'},
+    {id:'mfg-engineer', label:'Manufacturing / CAM Engineer', group:'technical'},
+    {id:'cad-manager', label:'CAD Manager', group:'technical'},
+    {id:'data-manager', label:'Data / PLM Manager', group:'technical'},
+    {id:'developer', label:'Developer', group:'technical'},
+    {id:'technical-artist', label:'Technical Artist / Pipeline TD', group:'technical'},
+    {id:'vfx-supervisor', label:'VFX Supervisor', group:'technical'},
+    {id:'animator', label:'Animator', group:'technical'},
+    {id:'production-manager', label:'Production Manager (M&E)', group:'technical'},
+    {id:'it-manager', label:'IT Manager', group:'it'},
+    {id:'enterprise-architect', label:'Enterprise Architect', group:'it'},
+    {id:'sysadmin', label:'Systems Administrator', group:'it'},
+    {id:'security-leader', label:'Security Leader', group:'it'},
+    {id:'platform-owner', label:'Platform / Integration Owner', group:'it'}
+  ],
+  outcomes: [
+    {id:'ai', label:'AI enablement'},
+    {id:'productivity', label:'Productivity'},
+    {id:'automation', label:'Automation'},
+    {id:'collaboration', label:'Collaboration'},
+    {id:'data', label:'Data management'},
+    {id:'interoperability', label:'Interoperability'},
+    {id:'cloud', label:'Cloud workflows'},
+    {id:'platform', label:'Platform & APIs'},
+    {id:'digital-twins', label:'Digital twins & operations'},
+    {id:'sustainability', label:'Sustainability'},
+    {id:'quality', label:'Quality'},
+    {id:'cost', label:'Cost reduction'},
+    {id:'risk', label:'Risk reduction'},
+    {id:'visualization', label:'Visualization'}
+  ],
+  statuses: [
+    {id:'released', label:'Recently released'},
+    {id:'announced', label:'Newly announced'},
+    {id:'preview', label:'Preview / beta'},
+    {id:'coming', label:'Coming soon'},
+    {id:'strategic', label:'Existing, strategically important'}
+  ],
+  /* recipient lenses for sharing */
+  lenses: [
+    {id:'executive', label:'Executives', prose:'executives', outcomes:['ai','cost','risk','sustainability','productivity','digital-twins'],
+     note:'Emphasizes business impact, capacity and risk, strategic direction, and the decision or sponsorship needed.',
+     ask:'Decision needed: agree whether to sponsor an evaluation and who owns it.'},
+    {id:'transformation', label:'Transformation & BIM/VDC leads', prose:'transformation and BIM/VDC leads', outcomes:['automation','productivity','collaboration','interoperability','data','cloud'],
+     note:'Emphasizes workflow change, standards, adoption effort and pilot candidates.',
+     ask:'Suggested action: identify one project team to pilot and define what success looks like.'},
+    {id:'pm', label:'Project managers', prose:'project managers', outcomes:['productivity','collaboration','risk','cost','quality'],
+     note:'Emphasizes day-to-day workflow impact, schedule and coordination, cost and risk.',
+     ask:'Suggested action: check which current projects would benefit and raise it at the next coordination meeting.'},
+    {id:'technical', label:'Technical users', prose:'technical users', outcomes:['productivity','quality','automation','visualization','interoperability'],
+     note:'Emphasizes what changes inside the tools and how to try it.',
+     ask:'Suggested action: read the release notes, try it on a non-critical model or shot, and report back.'},
+    {id:'it', label:'IT & platform', prose:'IT and platform teams', outcomes:['data','platform','cloud','interoperability','risk'],
+     note:'Emphasizes security, administration, integration, APIs, data location and deployment implications.',
+     ask:'Suggested action: review entitlements, identity/SSO and data-governance impact before enabling for users.'}
+  ]
+};
+const byId = (arr)=>Object.fromEntries(arr.map(x=>[x.id,x]));
+const IND=byId(T.industries), ROLE=byId(T.roles), OUT=byId(T.outcomes), STAT=byId(T.statuses), GROUP=byId(T.groups), LENS=byId(T.lenses);
+
+/* ---------- data: validate & normalize defensively ---------- */
+const raw = Array.isArray(window.AUTODESK_UPDATES) ? window.AUTODESK_UPDATES : null;
+const DATA = [];
+const problems = [];
+if (raw){
+  const seen = new Set();
+  raw.forEach((u,i)=>{
+    try{
+      if(!u || typeof u!=='object') throw new Error('not an object');
+      if(!u.id || !u.title) throw new Error('missing id or title');
+      if(seen.has(u.id)) throw new Error('duplicate id '+u.id);
+      seen.add(u.id);
+      if(u.customerSafe===false) return; // never show non-customer-safe items
+      const arr = v=>Array.isArray(v)?v.filter(Boolean):[];
+      const item = {
+        id:String(u.id), title:String(u.title),
+        summary:u.summary||'', whatsNew:u.whatsNew||'', whyItMatters:u.whyItMatters||'',
+        industries:arr(u.industries).filter(x=>IND[x]),
+        personas:{primary:arr(u.personas&&u.personas.primary).filter(x=>ROLE[x]), secondary:arr(u.personas&&u.personas.secondary).filter(x=>ROLE[x])},
+        products:arr(u.products).map(String), workflows:arr(u.workflows).map(String),
+        businessOutcomes:arr(u.businessOutcomes).filter(x=>OUT[x]),
+        releaseStatus:STAT[u.releaseStatus]?u.releaseStatus:'announced',
+        releaseDate:/^\d{4}-\d{2}-\d{2}$/.test(u.releaseDate||'')?u.releaseDate:'',
+        adoptionComplexity:['Low','Medium','High'].includes(u.adoptionComplexity)?u.adoptionComplexity:'Medium',
+        recommendedAction:u.recommendedAction||'Explore',
+        relevanceScore:Math.max(0,Math.min(100,Number(u.relevanceScore)||50)),
+        sourceTitle:u.sourceTitle||'Autodesk', sourceUrl:/^https?:\/\//.test(u.sourceUrl||'')?u.sourceUrl:'',
+        featured:!!u.featured, ai:!!u.ai, angles:(u.angles&&typeof u.angles==='object')?u.angles:{}
+      };
+      DATA.push(item);
+    }catch(e){ problems.push('Item '+(i+1)+': '+e.message); }
+  });
+}
+const PRODUCTS = [...new Set(DATA.flatMap(u=>u.products))].sort((a,b)=>a.localeCompare(b));
+const LAST = DATA.map(u=>u.releaseDate).filter(Boolean).sort().pop() || '';
+
+/* ---------- state ⇄ URL ---------- */
+const S = {industry:'', role:'', products:[], priorities:[], q:'', status:'', ai:false, sort:'relevant', sel:[], open:'', lens:'', fmt:'email'};
+function readURL(){
+  const p = new URLSearchParams(location.search);
+  S.industry = IND[p.get('industry')]?p.get('industry'):'';
+  S.role = ROLE[p.get('role')]?p.get('role'):'';
+  S.products = (p.get('products')||'').split(',').filter(x=>PRODUCTS.includes(x));
+  S.priorities = (p.get('priorities')||'').split(',').filter(x=>OUT[x]);
+  S.q = p.get('q')||'';
+  S.status = STAT[p.get('status')]?p.get('status'):'';
+  S.ai = p.get('ai')==='1';
+  S.sort = p.get('sort')==='latest'?'latest':'relevant';
+  S.sel = (p.get('ids')||'').split(',').filter(id=>DATA.some(u=>u.id===id));
+  S.open = DATA.some(u=>u.id===p.get('open'))?p.get('open'):'';
+  S.lens = LENS[p.get('for')]?p.get('for'):'';
+}
+function writeURL(){
+  const p = new URLSearchParams();
+  if(S.industry)p.set('industry',S.industry); if(S.role)p.set('role',S.role);
+  if(S.products.length)p.set('products',S.products.join(',')); if(S.priorities.length)p.set('priorities',S.priorities.join(','));
+  if(S.q)p.set('q',S.q); if(S.status)p.set('status',S.status); if(S.ai)p.set('ai','1'); if(S.sort!=='relevant')p.set('sort',S.sort);
+  if(S.sel.length)p.set('ids',S.sel.join(',')); if(S.open)p.set('open',S.open); if(S.lens)p.set('for',S.lens);
+  const qs = p.toString();
+  history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash);
+}
+const personalized = ()=>!!(S.industry||S.role||S.products.length||S.priorities.length||S.q||S.status||S.ai);
+
+/* ---------- relevance model ---------- */
+function score(u){
+  let s = u.relevanceScore; const why=[];
+  if(u.releaseDate){ const days=(Date.now()-new Date(u.releaseDate))/864e5; if(days<45)s+=12; else if(days<120)s+=7; else if(days<240)s+=3; }
+  if(S.industry && u.industries.includes(S.industry)) s+=10;
+  if(S.role){ const g=ROLE[S.role].group;
+    if(u.personas.primary.includes(S.role)){s+=28;why.push('your role');}
+    else if(u.personas.secondary.includes(S.role)){s+=14;why.push('your role');}
+    else if([...u.personas.primary,...u.personas.secondary].some(r=>ROLE[r].group===g)){s+=6;} }
+  if(S.products.length){ const hit=u.products.filter(p=>S.products.includes(p)); if(hit.length){s+=12+4*Math.min(hit.length,3); why.push(hit.slice(0,2).join(', '));} }
+  if(S.priorities.length){ const hit=u.businessOutcomes.filter(o=>S.priorities.includes(o)); if(hit.length){s+=8*Math.min(hit.length,3); why.push(hit.slice(0,2).map(o=>OUT[o].label.toLowerCase()).join(', '));} }
+  if(u.featured) s+=3;
+  return {s,why};
+}
+function matches(u){
+  if(S.industry && !u.industries.includes(S.industry)) return false;
+  if(S.status && u.releaseStatus!==S.status) return false;
+  if(S.ai && !u.ai) return false;
+  if(S.q){ const q=S.q.toLowerCase(); const hay=[u.title,u.summary,u.whatsNew,u.whyItMatters,...u.products,...u.workflows,...u.businessOutcomes.map(o=>OUT[o].label),...u.industries.map(i=>IND[i].label)].join(' ').toLowerCase(); if(!hay.includes(q)) return false; }
+  if(S.products.length && !u.products.some(p=>S.products.includes(p))) return false;
+  return true;
+}
+function results(){
+  let list = DATA.filter(matches).map(u=>({u,...score(u)}));
+  if(S.role){ // role filters to matches when we have enough of them; otherwise it just re-ranks
+    const g=ROLE[S.role].group;
+    const rel=list.filter(x=>[...x.u.personas.primary,...x.u.personas.secondary].some(r=>r===S.role||ROLE[r].group===g));
+    if(rel.length>=3) list=rel;
+  }
+  if(S.priorities.length){ const rel=list.filter(x=>x.u.businessOutcomes.some(o=>S.priorities.includes(o))); if(rel.length>=3) list=rel; }
+  list.sort((a,b)=> S.sort==='latest' ? (b.u.releaseDate||'').localeCompare(a.u.releaseDate||'') || b.s-a.s : b.s-a.s || (b.u.releaseDate||'').localeCompare(a.u.releaseDate||''));
+  return list;
+}
+
+/* ---------- helpers ---------- */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate=d=>{ if(!d)return 'Date to be confirmed'; const [y,m,dd]=d.split('-'); return new Date(Date.UTC(+y,+m-1,+dd)).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}); };
+const edge=u=>u.industries.length===1?IND[u.industries[0]].color:'linear-gradient(180deg,var(--aec),var(--dm),var(--me))';
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('on'),1800); }
+async function copy(text){ try{ await navigator.clipboard.writeText(text); return true; }catch(e){ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); let ok=false; try{ok=document.execCommand('copy');}catch(_){ } ta.remove(); return ok; } }
+const caret='<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 8 5 5 5-5"/></svg>';
+
+/* ---------- sentence builder ---------- */
+let openPop=null;
+function closePop(){ if(openPop){openPop.remove();openPop=null;} document.querySelectorAll('.slot[aria-expanded]').forEach(b=>b.setAttribute('aria-expanded','false')); }
+document.addEventListener('click',e=>{ if(openPop && !openPop.contains(e.target) && !e.target.closest('.slot')) closePop(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closePop(); closeDrawer(); closeShare(); } });
+
+function slot(key,text,set){ return `<button class="slot${set?' set':''}" data-slot="${key}" aria-haspopup="dialog" aria-expanded="false">${esc(text)}${caret}</button>`; }
+function renderSentence(){
+  const ind = S.industry?IND[S.industry].label:'all industries';
+  const role = S.role?ROLE[S.role].label:'anyone';
+  const prods = S.products.length?(S.products.length<=2?S.products.join(' and '):S.products.slice(0,2).join(', ')+' and '+(S.products.length-2)+' more'):'any Autodesk products';
+  const pri = S.priorities.length?(S.priorities.length<=2?S.priorities.map(o=>OUT[o].label.toLowerCase()).join(' and '):S.priorities.slice(0,2).map(o=>OUT[o].label.toLowerCase()).join(', ')+' and '+(S.priorities.length-2)+' more'):'any priority';
+  $('sentence').innerHTML = `<span>Show updates for</span>${slot('industry',ind,!!S.industry)}<span>relevant to</span>${slot('role',role,!!S.role)}<span>who uses</span>${slot('products',prods,!!S.products.length)}<span>and cares about</span>${slot('priorities',pri,!!S.priorities.length)}`;
+  $('sentence').querySelectorAll('.slot').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation(); togglePop(b);}));
+}
+function togglePop(btn){
+  const key=btn.dataset.slot;
+  if(openPop && openPop.dataset.key===key){closePop();return;}
+  closePop();
+  const pop=document.createElement('div'); pop.className='pop'; pop.dataset.key=key; pop.setAttribute('role','dialog');
+  const multi = key==='products'||key==='priorities';
+  let inner='';
+  if(key==='industry'){
+    inner=`<h4>Industry</h4><div class="opts">${T.industries.map(i=>`<button data-v="${i.id}" aria-pressed="${S.industry===i.id}">${esc(i.long)}</button>`).join('')}</div>`;
+  }else if(key==='role'){
+    inner=`<h4>Role</h4><input type="search" placeholder="Type a role…" aria-label="Filter roles"><div class="opts" id="roleOpts">${T.groups.map(g=>`<div class="group">${esc(g.label)}</div>`+T.roles.filter(r=>r.group===g.id).map(r=>`<button data-v="${r.id}" aria-pressed="${S.role===r.id}">${esc(r.label)}</button>`).join('')).join('')}</div>`;
+  }else if(key==='products'){
+    inner=`<h4>Products you use (choose any)</h4><input type="search" placeholder="Type a product…" aria-label="Filter products"><div class="opts">${PRODUCTS.map(p=>`<button data-v="${esc(p)}" aria-pressed="${S.products.includes(p)}">${esc(p)}</button>`).join('')}</div>`;
+  }else{
+    inner=`<h4>Business priorities (choose any)</h4><div class="opts">${T.outcomes.map(o=>`<button data-v="${o.id}" aria-pressed="${S.priorities.includes(o.id)}">${esc(o.label)}</button>`).join('')}</div>`;
+  }
+  inner+=`<div class="foot"><button data-clear>Clear</button>${multi?'<button class="done" data-done>Done</button>':''}</div>`;
+  pop.innerHTML=inner;
+  btn.after(pop); openPop=pop; btn.setAttribute('aria-expanded','true');
+  const r=pop.getBoundingClientRect(); if(r.right>window.innerWidth-8) pop.classList.add('right');
+  const inp=pop.querySelector('input[type=search]'); if(inp){ inp.addEventListener('input',()=>{const v=inp.value.toLowerCase(); pop.querySelectorAll('.opts button').forEach(b=>b.style.display=b.textContent.toLowerCase().includes(v)?'':'none'); pop.querySelectorAll('.group').forEach(g=>g.style.display=v?'none':'');}); }
+  pop.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    if(b.hasAttribute('data-clear')){ if(key==='industry')S.industry=''; if(key==='role')S.role=''; if(key==='products')S.products=[]; if(key==='priorities')S.priorities=[]; closePop(); update(); return; }
+    if(b.hasAttribute('data-done')){ closePop(); return; }
+    const v=b.dataset.v; if(v===undefined) return;
+    if(key==='industry'){ S.industry = S.industry===v?'':v; closePop(); }
+    else if(key==='role'){ S.role = S.role===v?'':v; closePop(); }
+    else if(key==='products'){ S.products = S.products.includes(v)?S.products.filter(x=>x!==v):[...S.products,v]; b.setAttribute('aria-pressed',String(S.products.includes(v))); }
+    else { S.priorities = S.priorities.includes(v)?S.priorities.filter(x=>x!==v):[...S.priorities,v]; b.setAttribute('aria-pressed',String(S.priorities.includes(v))); }
+    update(!multi);
+  });
+  (inp||pop.querySelector('button')).focus();
+}
+
+/* ---------- cards ---------- */
+function statusHTML(u){ return `<span class="status ${u.releaseStatus}"><b aria-hidden="true"></b>${esc(STAT[u.releaseStatus].label)}</span>`; }
+function card(x, featured){
+  const u=x.u||x; const why=x.why||[];
+  const selected=S.sel.includes(u.id);
+  return `<article class="card${featured?' featured':''}" style="--edge:${edge(u)}">
+    <div class="head">${statusHTML(u)}<span class="date">${esc(fmtDate(u.releaseDate))}</span></div>
+    <h3>${esc(u.title)}</h3>
+    <p>${esc(u.summary)}</p>
+    <div class="tags">${u.industries.map(i=>`<span class="tag">${esc(IND[i].label)}</span>`).join('')}${u.products.slice(0,3).map(p=>`<span class="tag prod">${esc(p)}</span>`).join('')}${u.ai?'<span class="tag">AI</span>':''}</div>
+    <div class="foot"><div class="why">${why.length?`<span>Matches ${esc(why.join(' · '))}</span>`:`<span style="color:var(--muted);font-weight:500">${esc(u.personas.primary.slice(0,2).map(r=>ROLE[r].label).join(', ')||'All roles')}</span>`}</div>
+      <button class="sel" data-sel="${esc(u.id)}" aria-pressed="${selected}">${selected?'Added':'Add to share'}</button></div>
+    <button class="open" data-open="${esc(u.id)}" aria-label="Open details: ${esc(u.title)}"></button>
+  </article>`;
+}
+
+/* ---------- render ---------- */
+function update(closePopover=true){
+  if(closePopover) closePop();
+  writeURL();
+  renderSentence();
+  const list = results();
+  const isP = personalized();
+
+  $('heroMeta').textContent = `${DATA.length} updates across three industries · ${DATA.filter(u=>u.featured).length} featured · last refreshed ${fmtDate(LAST)}`;
+  $('footDate').textContent = fmtDate(LAST);
+
+  // sort / status / ai controls
+  document.querySelectorAll('[data-sort]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sort===S.sort)));
+  $('statusSeg').innerHTML = `<button data-status="" aria-pressed="${!S.status}">All statuses</button>`+T.statuses.map(s=>`<button data-status="${s.id}" aria-pressed="${S.status===s.id}">${esc(s.label.replace('Existing, strategically important','Strategic'))}</button>`).join('');
+  $('aiOnly').setAttribute('aria-pressed',String(S.ai));
+  if($('q').value!==S.q) $('q').value=S.q;
+
+  // featured (hidden when personalizing so the ranked list is the answer)
+  const feat = DATA.filter(u=>u.featured).map(u=>({u,...score(u)})).sort((a,b)=>b.s-a.s);
+  $('featured').style.display = isP?'none':'';
+  $('featuredGrid').innerHTML = feat.map(x=>card(x,true)).join('');
+
+  // results
+  $('resultsTitle').textContent = isP ? 'Recommended for you' : 'All updates';
+  $('resultsSub').textContent = isP ? 'Ranked by fit with your selections, then recency. Change any part of the sentence above to refine.' : (S.sort==='latest'?'Newest first.':'Ranked by strategic significance and recency.');
+  $('count').innerHTML = `<strong>${list.length}</strong> of ${DATA.length} updates${isP?' match your view':''}${S.sel.length?` · <strong>${S.sel.length}</strong> added to share`:''}`;
+  $('grid').innerHTML = list.map(x=>card(x,false)).join('');
+  $('empty').innerHTML = list.length?'':`<div class="empty"><h3>No updates match that combination yet.</h3><p>Try removing a product or priority, or <button id="emptyReset">show everything</button>. New updates are added as Autodesk publishes them.</p></div>`;
+  const er=$('emptyReset'); if(er) er.onclick=resetAll;
+
+  // browse tiles
+  $('industryTiles').innerHTML = T.industries.map(i=>`<button class="tile" data-ind="${i.id}" style="--edge:${i.color}" aria-pressed="${S.industry===i.id}"><h3>${esc(i.long)}</h3><p>${esc(i.blurb)}</p><div class="n">${DATA.filter(u=>u.industries.includes(i.id)).length}<span style="font-size:14px;color:var(--muted);font-weight:600;margin-left:6px">updates</span></div></button>`).join('');
+  $('roleChips').innerHTML = T.roles.map(r=>`<button class="chip" data-role="${r.id}" aria-pressed="${S.role===r.id}">${esc(r.label)}</button>`).join('');
+  $('outcomeChips').innerHTML = T.outcomes.map(o=>`<button class="chip" data-pri="${o.id}" aria-pressed="${S.priorities.includes(o.id)}">${esc(o.label)} <span style="color:${S.priorities.includes(o.id)?'#c9d1dc':'var(--muted)'};font-weight:500">${DATA.filter(u=>u.businessOutcomes.includes(o.id)).length}</span></button>`).join('');
+
+  // tray + header cta
+  $('tray').classList.toggle('on',S.sel.length>0);
+  $('trayText').textContent = `${S.sel.length} update${S.sel.length===1?'':'s'} selected`;
+  $('shareTop').disabled = S.sel.length===0;
+  $('shareTop').textContent = S.sel.length?`Share ${S.sel.length} with my team`:'Share with my team';
+}
+
+/* ---------- detail drawer ---------- */
+function openDrawer(id){
+  const u=DATA.find(x=>x.id===id); if(!u) return;
+  S.open=id; writeURL();
+  const sel=S.sel.includes(u.id);
+  $('dCrumb').textContent = u.industries.map(i=>IND[i].long).join(', ');
+  $('dBody').innerHTML = `
+    <div class="edge" style="--edge:${edge(u)}"></div>
+    <h2 id="dTitle">${esc(u.title)}</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:14px;color:var(--ink-2)">${statusHTML(u)}<span>${esc(fmtDate(u.releaseDate))}</span>${u.ai?'<span class="tag">AI</span>':''}</div>
+    <dl class="kv">
+      <dt>Products</dt><dd>${esc(u.products.join(', ')||'—')}</dd>
+      <dt>Workflows</dt><dd>${esc(u.workflows.join(', ')||'—')}</dd>
+      <dt>Business impact</dt><dd>${esc(u.businessOutcomes.map(o=>OUT[o].label).join(', ')||'—')}</dd>
+      <dt>Adoption effort</dt><dd>${esc(u.adoptionComplexity)}</dd>
+    </dl>
+    <h3>What is it?</h3><p>${esc(u.summary)}</p>
+    <h3>What's new</h3><p>${esc(u.whatsNew||'See the source for details.')}</p>
+    <h3>Why it matters</h3><p>${esc(u.whyItMatters||'')}</p>
+    <h3>Who should know</h3>
+    <div class="tags">${u.personas.primary.map(r=>`<span class="tag primary">${esc(ROLE[r].label)}</span>`).join('')}${u.personas.secondary.map(r=>`<span class="tag">${esc(ROLE[r].label)}</span>`).join('')}</div>
+    <h3>Recommended next step</h3>
+    <div class="next"><div><b>${esc(u.recommendedAction)}</b>${esc(nextStepText(u))}</div></div>
+    <div class="src">Source: <a href="${esc(u.sourceUrl||'https://www.autodesk.com/')}" target="_blank" rel="noopener">${esc(u.sourceTitle)}</a><div style="color:var(--muted);font-size:12.5px;margin-top:4px">${esc((u.sourceUrl||'').replace(/^https?:\/\//,''))}</div></div>
+    <div class="actions">
+      <button class="btn solid" id="dSel" aria-pressed="${sel}">${sel?'Added to share':'Add to share'}</button>
+      <button class="btn" id="dShareOne">Share just this</button>
+      <button class="btn quiet" id="dCopy">Copy summary</button>
+      <button class="btn quiet" id="dLink">Copy link</button>
+    </div>`;
+  $('dSel').onclick=()=>{toggleSel(u.id); openDrawer(u.id);};
+  $('dShareOne').onclick=()=>{ S.sel=[u.id]; update(); openShare(); };
+  $('dCopy').onclick=async()=>{ toast(await copy(summaryFor([u],'technical','plain'))?'Summary copied':'Copy failed — select the text manually'); };
+  $('dLink').onclick=async()=>{ const url=location.origin+location.pathname+'?open='+encodeURIComponent(u.id); toast(await copy(url)?'Link copied':'Copy failed'); };
+  $('scrim').classList.add('on'); $('drawer').classList.add('on'); $('drawer').setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+  $('dClose').focus();
+}
+function closeDrawer(){ if(!$('drawer').classList.contains('on')) return; $('scrim').classList.remove('on'); $('drawer').classList.remove('on'); $('drawer').setAttribute('aria-hidden','true'); document.body.style.overflow=''; S.open=''; writeURL(); }
+function nextStepText(u){
+  const map={'Explore':' — review the capability and note where it fits your current workflows.','Enable':' — it is likely already in your subscription; an administrator can turn it on.','Pilot':' — choose one project or team, set a measurable goal, and run it for a few weeks.','Discuss with Autodesk':' — ask your Autodesk account team or partner for a briefing and timeline for your organization.','Share with BIM team':' — forward to your BIM/VDC leads to assess standards and template impact.','Share with IT':' — IT should review entitlements, identity, data location and integration impact.','Evaluate workflow':' — map your current process against the new capability and identify the steps it removes.','Watch demo':' — a short demo is the fastest way to judge fit; look for it on the source page or at Autodesk University on demand.','Read release notes':' — the release notes list exact features, requirements and known limitations.'};
+  return map[u.recommendedAction]||'';
+}
+
+/* ---------- selection & sharing ---------- */
+function toggleSel(id){ S.sel = S.sel.includes(id)?S.sel.filter(x=>x!==id):[...S.sel,id]; update(); }
+function defaultLens(){ if(S.lens) return S.lens; if(S.role){ const g=ROLE[S.role].group; return g==='technical'&&(S.role==='project-manager'||S.role==='production-manager')?'pm':g; } return 'transformation'; }
+function summaryFor(items, lensId, fmt){
+  const L=LENS[lensId]||LENS.transformation;
+  const b = fmt==='teams'?'**':''; const nl='\n';
+  const url = location.origin+location.pathname+'?ids='+encodeURIComponent(items.map(u=>u.id).join(','))+'&for='+lensId;
+  let out='';
+  if(fmt==='email') out+=`Subject: What's new at Autodesk — ${items.length} update${items.length===1?'':'s'} relevant to ${L.prose}${nl}${nl}Hi team,${nl}${nl}Sharing ${items.length===1?'an Autodesk update':items.length+' recent Autodesk updates'} worth knowing about, summarized for ${L.prose}.${nl}${nl}`;
+  else if(fmt==='teams') out+=`${b}What's new at Autodesk — for ${L.prose}${b}${nl}${nl}`;
+  else out+=`What's new at Autodesk — for ${L.prose}${nl}${'='.repeat(40)}${nl}${nl}`;
+  items.forEach((u,i)=>{
+    const outs=u.businessOutcomes.filter(o=>L.outcomes.includes(o)).map(o=>OUT[o].label);
+    const angle=u.angles&&u.angles[lensId];
+    out+=`${items.length>1?(i+1)+'. ':''}${b}${u.title}${b}${nl}`;
+    out+=`${STAT[u.releaseStatus].label} · ${fmtDate(u.releaseDate)} · ${u.products.join(', ')}${nl}`;
+    out+=`What it is: ${u.summary}${nl}`;
+    out+=`What's new: ${u.whatsNew}${nl}`;
+    out+=`Why it matters for ${L.prose}: ${angle||u.whyItMatters}${nl}`;
+    if(outs.length) out+=`Relevant outcomes: ${outs.join(', ')}${nl}`;
+    out+=`Adoption effort: ${u.adoptionComplexity} · Recommended: ${u.recommendedAction}${nl}`;
+    out+=`Source: ${u.sourceUrl}${nl}${nl}`;
+  });
+  out+=`${L.ask}${nl}${nl}View these updates online: ${url}${nl}`;
+  if(fmt==='email') out+=`${nl}Release dates and status reflect Autodesk's public communications; preview and coming-soon items may change.${nl}`;
+  return out;
+}
+function openShare(){
+  if(!S.sel.length){ toast('Add at least one update first'); return; }
+  S.lens=defaultLens(); writeURL();
+  renderShare();
+  $('share').classList.add('on'); document.body.style.overflow='hidden';
+  $('lens').querySelector('[aria-pressed="true"]').focus();
+}
+function renderShare(){
+  const items=S.sel.map(id=>DATA.find(u=>u.id===id)).filter(Boolean);
+  $('sTitle').textContent = `Share ${items.length} update${items.length===1?'':'s'} with my team`;
+  $('lens').innerHTML = T.lenses.map(l=>`<button class="chip" data-lens="${l.id}" aria-pressed="${S.lens===l.id}">${esc(l.label)}</button>`).join('');
+  $('lensNote').textContent = LENS[S.lens].note;
+  document.querySelectorAll('[data-fmt]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.fmt===S.fmt)));
+  const text=summaryFor(items,S.lens,S.fmt);
+  $('sText').value=text;
+  const subj=`What's new at Autodesk — ${items.length} update${items.length===1?'':'s'} for ${LENS[S.lens].prose}`;
+  const body=text.replace(/^Subject:.*\n\n/,'');
+  $('sMail').href='mailto:?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body.length>1800?body.slice(0,1800)+'\n…\n(Full summary: '+location.origin+location.pathname+'?ids='+encodeURIComponent(S.sel.join(','))+'&for='+S.lens+')':body);
+  $('printwrap').innerHTML = `<h1>What's new at Autodesk — for ${esc(LENS[S.lens].prose)}</h1><div class="p-meta">Prepared ${esc(new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}))} · ${items.length} update${items.length===1?'':'s'}</div>`+
+    items.map(u=>`<article><h2>${esc(u.title)}</h2><div class="s">${esc(STAT[u.releaseStatus].label)} · ${esc(fmtDate(u.releaseDate))} · ${esc(u.products.join(', '))}</div><p><b>What it is.</b> ${esc(u.summary)}</p><p><b>What's new.</b> ${esc(u.whatsNew)}</p><p><b>Why it matters.</b> ${esc((u.angles&&u.angles[S.lens])||u.whyItMatters)}</p><p><b>Who should know.</b> ${esc(u.personas.primary.map(r=>ROLE[r].label).join(', '))}</p><p><b>Recommended.</b> ${esc(u.recommendedAction)} · Adoption effort: ${esc(u.adoptionComplexity)}</p><div class="u">Source: ${esc(u.sourceUrl)}</div></article>`).join('')+
+    `<p>${esc(LENS[S.lens].ask)}</p>`;
+}
+function closeShare(){ if(!$('share').classList.contains('on')) return; $('share').classList.remove('on'); if(!$('drawer').classList.contains('on')) document.body.style.overflow=''; }
+
+/* ---------- events ---------- */
+function resetAll(){ Object.assign(S,{industry:'',role:'',products:[],priorities:[],q:'',status:'',ai:false,sort:'relevant'}); update(); window.scrollTo({top:0,behavior:'smooth'}); }
+$('resetAll').onclick=resetAll;
+$('home').onclick=e=>{e.preventDefault();resetAll();};
+$('copyLink').onclick=async()=>{ toast(await copy(location.href)?'Link copied — anyone opening it sees this exact view':'Copy failed'); };
+$('q').addEventListener('input',e=>{ S.q=e.target.value.trim(); clearTimeout($('q')._t); $('q')._t=setTimeout(update,140); });
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,[data-ind]'); if(!t) return;
+  if(t.dataset.sort){S.sort=t.dataset.sort;update();}
+  else if(t.dataset.status!==undefined){S.status=t.dataset.status;update();}
+  else if(t.id==='aiOnly'){S.ai=!S.ai;update();}
+  else if(t.dataset.sel){toggleSel(t.dataset.sel);}
+  else if(t.dataset.open){openDrawer(t.dataset.open);}
+  else if(t.dataset.ind){S.industry=S.industry===t.dataset.ind?'':t.dataset.ind;update();document.getElementById('all').scrollIntoView({behavior:'smooth'});}
+  else if(t.dataset.role){S.role=S.role===t.dataset.role?'':t.dataset.role;update();document.getElementById('all').scrollIntoView({behavior:'smooth'});}
+  else if(t.dataset.pri){const v=t.dataset.pri;S.priorities=S.priorities.includes(v)?S.priorities.filter(x=>x!==v):[...S.priorities,v];update();document.getElementById('all').scrollIntoView({behavior:'smooth'});}
+  else if(t.dataset.lens){S.lens=t.dataset.lens;writeURL();renderShare();}
+  else if(t.dataset.fmt){S.fmt=t.dataset.fmt;renderShare();}
+});
+$('dClose').onclick=closeDrawer; $('scrim').onclick=closeDrawer;
+$('trayShare').onclick=openShare; $('shareTop').onclick=openShare;
+$('trayClear').onclick=()=>{S.sel=[];update();};
+$('sClose').onclick=closeShare;
+$('share').addEventListener('click',e=>{ if(e.target===$('share')) closeShare(); });
+$('sCopy').onclick=async()=>{ toast(await copy($('sText').value)?'Summary copied':'Copy failed — select the text manually'); };
+$('sLink').onclick=async()=>{ const url=location.origin+location.pathname+'?ids='+encodeURIComponent(S.sel.join(','))+'&for='+S.lens; toast(await copy(url)?'Link copied':'Copy failed'); };
+$('sPrint').onclick=()=>window.print();
+
+/* ---------- boot ---------- */
+if(!raw){
+  $('notice').innerHTML='<div class="notice"><strong>Updates could not be loaded.</strong> The file <code>data/updates.js</code> is missing or contains a syntax error. Open the browser console for details, fix the file, and reload.</div>';
+}else if(problems.length){
+  $('notice').innerHTML=`<div class="notice"><strong>${problems.length} item${problems.length===1?' was':'s were'} skipped</strong> because of data errors in <code>data/updates.js</code>: ${esc(problems.slice(0,3).join('; '))}${problems.length>3?'…':''}</div>`;
+  console.warn('Skipped updates:',problems);
+}
+readURL();
+update();
+if(S.open) openDrawer(S.open);
+else if(S.sel.length && LENS[S.lens]) openShare();
+})();
+</script>
+</body>
+</html>

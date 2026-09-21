@@ -1,0 +1,22 @@
+name: Validate content
+on:
+  pull_request:
+    paths: ["data/**", "index.html"]
+  push:
+    branches: [main]
+    paths: ["data/**", "index.html"]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Validate data/updates.js
+        run: node scripts/validate.js
+      - name: Check that source links resolve
+        run: |
+          node -e '
+            const fs=require("fs");const d=JSON.parse(fs.readFileSync("data/updates.json","utf8"));
+            (async()=>{let bad=0;for(const u of d){try{const r=await fetch(u.sourceUrl,{method:"HEAD",redirect:"follow"});if(r.status>=400){console.log("BROKEN",r.status,u.id,u.sourceUrl);bad++}}catch(e){console.log("UNREACHABLE",u.id,u.sourceUrl)}}
+            if(bad)process.exit(1)})()'
